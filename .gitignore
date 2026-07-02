@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local databases and indexes (must not be uploaded to Git)
+database/
+chroma_db/
+agent_edu.db
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE files
+.idea/
+.vscode/
+
+# Local agents and config folders
+.agents/
+.gemini/
