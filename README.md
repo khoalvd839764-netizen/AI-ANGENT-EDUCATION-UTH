@@ -1,81 +1,81 @@
-# Agent Education - Tro ly hoc tap AI voi RAG
+# Agent Education - Trợ lý học tập AI với RAG
 
-Agent Education la ung dung tro ly hoc tap AI chay local cho nguoi dung tieng Viet.
-Du an ket hop giao dien Tkinter, xu ly PDF, RAG (Retrieval-Augmented Generation), ChromaDB va Ollama de ho tro hoi dap dua tren tai lieu hoc tap.
+Agent Education là ứng dụng trợ lý học tập AI chạy local cho người dùng tiếng Việt.
+Dự án kết hợp giao diện Tkinter, xử lý PDF, RAG (Retrieval-Augmented Generation), ChromaDB và Ollama để hỗ trợ hỏi đáp dựa trên tài liệu học tập.
 
-## Mo ta ngan cho GitHub About
+## Mô tả ngắn cho GitHub About
 
-Ban co the copy 1 trong 3 dong sau vao phan About cua repository:
+Bạn có thể copy 1 trong 3 dòng sau vào phần About của repository:
 
-1. Tro ly hoc tap AI tieng Viet su dung Tkinter + Ollama + ChromaDB cho hoi dap theo file PDF.
-2. Ung dung RAG chay local: upload PDF, dat cau hoi bang tieng Viet, va danh gia chat luong cau tra loi AI.
-3. Agent Education: desktop AI tutor co dang nhap, nap tai lieu PDF, semantic chunking va tim kiem vector bang Chroma.
+1. Trợ lý học tập AI tiếng Việt sử dụng Tkinter + Ollama + ChromaDB cho hỏi đáp theo file PDF.
+2. Ứng dụng RAG chạy local: upload PDF, đặt câu hỏi bằng tiếng Việt, và đánh giá chất lượng câu trả lời AI.
+3. Agent Education: desktop AI tutor có đăng nhập, nạp tài liệu PDF, semantic chunking và tìm kiếm vector bằng Chroma.
 
-## Tinh nang chinh
+## Tính năng chính
 
-- Xac thuc nguoi dung bang SQLite local (dang ky/dang nhap).
-- Tai len file PDF va trich xuat van ban bang pdfplumber.
-- Cat nho van ban theo ngu nghia (semantic chunking) de tang do chinh xac truy van.
-- Tao embedding bang Ollama (nomic-embed-text) va luu vector vao ChromaDB.
-- Tro ly chat uu tien su dung ngu canh tai lieu (RAG) truoc khi tra loi.
-- Che do phan tich/tom tat noi dung tai lieu da tai len.
-- 2 bo trinh chay test:
-  - Test CMD cho kiem thu tu dong va phu hop CI/CD.
-  - Test GUI de theo doi ket qua truc quan va do do khop ngu nghia.
+- Xác thực người dùng bằng SQLite local (đăng ký/đăng nhập).
+- Tải lên file PDF và trích xuất văn bản bằng pdfplumber.
+- Cắt nhỏ văn bản theo ngữ nghĩa (semantic chunking) để tăng độ chính xác truy vấn.
+- Tạo embedding bằng Ollama (nomic-embed-text) và lưu vector vào ChromaDB.
+- Trợ lý chat ưu tiên sử dụng ngữ cảnh tài liệu (RAG) trước khi trả lời.
+- Chế độ phân tích/tóm tắt nội dung tài liệu đã tải lên.
+- 2 bộ trình chạy test:
+  - Test CMD cho kiểm thử tự động và phù hợp CI/CD.
+  - Test GUI để theo dõi kết quả trực quan và đo độ khớp ngữ nghĩa.
 
-## Cong nghe su dung
+## Công nghệ sử dụng
 
 - Python 3.x
 - Tkinter (desktop GUI)
 - Ollama (LLM local + embedding)
 - ChromaDB (vector database)
-- pdfplumber (doc van ban tu PDF)
-- SQLite (luu tai khoan local)
+- pdfplumber (đọc văn bản từ PDF)
+- SQLite (lưu tài khoản local)
 
-## Cau truc du an
+## Cấu trúc dự án
 
 ```text
 .
-|- app.py                       # Ung dung giao dien chinh (dang nhap + chat + upload + phan tich)
-|- chay_test_cmd.py             # Trinh chay test dong lenh
-|- chay_test_gui.py             # Trinh chay test giao dien
+|- app.py                       # Ứng dụng giao diện chính (đăng nhập + chat + upload + phân tích)
+|- chay_test_cmd.py             # Trình chạy test dòng lệnh
+|- chay_test_gui.py             # Trình chạy test giao diện
 |- backend/
-|  |- Model_ai.py               # Quan ly model Ollama va goi chat
-|  |- Rag.py                    # Pipeline RAG va ket noi ChromaDB
-|  |- file_processor.py         # Trich xuat van ban tu PDF
-|  |- baomat.py                 # Logic dang nhap/dang ky
-|  |- ketnoi_data.py            # Khoi tao va ket noi SQLite
+|  |- Model_ai.py               # Quản lý model Ollama và gọi chat
+|  |- Rag.py                    # Pipeline RAG và kết nối ChromaDB
+|  |- file_processor.py         # Trích xuất văn bản từ PDF
+|  |- baomat.py                 # Logic đăng nhập/đăng ký
+|  |- ketnoi_data.py            # Khởi tạo và kết nối SQLite
 |- database/
-|  |- agent_edu.db              # CSDL tai khoan local (tu dong tao)
-|  |- chroma_db/                # Luu tru vector chinh
-|  |- test_chroma_db/           # Luu tru vector phuc vu test
+|  |- agent_edu.db              # CSDL tài khoản local (tự động tạo)
+|  |- chroma_db/                # Lưu trữ vector chính
+|  |- test_chroma_db/           # Lưu trữ vector phục vụ test
 |- giai_thich_chi_tiet_tung_file/
-|  |- README.md                 # Tai lieu giai thich chi tiet tung file ma nguon
+|  |- README.md                 # Tài liệu giải thích chi tiết từng file mã nguồn
 ```
 
-## Yeu cau truoc khi chay
+## Yêu cầu trước khi chạy
 
-Can co:
+Cần có:
 
-- Python 3.10+ (khuyen nghi)
-- Ollama da cai dat va dang chay local
-- Da co hoac cho phep auto-pull cac model:
+- Python 3.10+ (khuyến nghị)
+- Ollama đã cài đặt và đang chạy local
+- Đã có hoặc cho phép auto-pull các model:
   - qwen2.5:3b
   - nomic-embed-text
 
-## Cai dat thu vien
+## Cài đặt thư viện
 
 ```bash
 pip install pillow pdfplumber chromadb ollama
 ```
 
-## Chay ung dung
+## Chạy ứng dụng
 
 ```bash
 python app.py
 ```
 
-## Chay kiem thu
+## Chạy kiểm thử
 
 Test CMD:
 
@@ -89,26 +89,26 @@ Test GUI:
 python chay_test_gui.py
 ```
 
-Luu y:
+Lưu ý:
 
-- Neu Ollama chua bat, cac bai test RAG thuc te se bi skip va chi chay mock test.
-- Test CMD tra ve exit code 1 neu co bai test that bai, phu hop tich hop CI/CD.
+- Nếu Ollama chưa bật, các bài test RAG thực tế sẽ bị skip và chỉ chạy mock test.
+- Test CMD trả về exit code 1 nếu có bài test thất bại, phù hợp tích hợp CI/CD.
 
-## Luong su dung co ban
+## Luồng sử dụng cơ bản
 
-1. Dang ky hoac dang nhap tai khoan.
-2. Tai file PDF tai lieu hoc tap.
-3. He thong trich xuat text, cat chunk theo ngu nghia, tao embedding va luu vao ChromaDB.
-4. Dat cau hoi; tro ly truy xuat cac chunk lien quan va tra loi bang tieng Viet.
-5. Co the yeu cau AI phan tich/tom tat tai lieu.
+1. Đăng ký hoặc đăng nhập tài khoản.
+2. Tải file PDF tài liệu học tập.
+3. Hệ thống trích xuất text, cắt chunk theo ngữ nghĩa, tạo embedding và lưu vào ChromaDB.
+4. Đặt câu hỏi; trợ lý truy xuất các chunk liên quan và trả lời bằng tiếng Việt.
+5. Có thể yêu cầu AI phân tích/tóm tắt tài liệu.
 
-## Ghi chu bao mat
+## Ghi chú bảo mật
 
-- Hien tai mat khau dang duoc luu dang plain text trong SQLite.
-- Neu dua vao moi truong thuc te, nen bo sung hash mat khau (vi du bcrypt) va tang cuong kiem soat bao mat.
+- Hiện tại mật khẩu đang được lưu dạng plain text trong SQLite.
+- Nếu đưa vào môi trường thực tế, nên bổ sung hash mật khẩu (ví dụ bcrypt) và tăng cường kiểm soát bảo mật.
 
-## Tai lieu bo sung
+## Tài liệu bổ sung
 
-Xem giai thich chi tiet tung file tai:
+Xem giải thích chi tiết từng file tại:
 
 - giai_thich_chi_tiet_tung_file/README.md
