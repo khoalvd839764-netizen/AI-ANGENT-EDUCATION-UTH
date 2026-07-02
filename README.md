@@ -5,8 +5,6 @@ Dự án kết hợp giao diện Tkinter, xử lý PDF, RAG (Retrieval-Augmented
 
 ## Mô tả ngắn cho GitHub About
 
-Bạn có thể copy 1 trong 3 dòng sau vào phần About của repository:
-
 1. Trợ lý học tập AI tiếng Việt sử dụng Tkinter + Ollama + ChromaDB cho hỏi đáp theo file PDF.
 2. Ứng dụng RAG chạy local: upload PDF, đặt câu hỏi bằng tiếng Việt, và đánh giá chất lượng câu trả lời AI.
 3. Agent Education: desktop AI tutor có đăng nhập, nạp tài liệu PDF, semantic chunking và tìm kiếm vector bằng Chroma.
